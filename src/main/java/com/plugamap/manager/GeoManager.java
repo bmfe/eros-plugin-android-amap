@@ -9,13 +9,13 @@ import com.amap.api.location.AMapLocationClient;
 import com.amap.api.location.AMapLocationClientOption;
 import com.amap.api.location.AMapLocationListener;
 import com.amap.api.maps.MapsInitializer;
+import com.benmu.framework.BMWXEnvironment;
 import com.benmu.framework.constant.Constant;
 import com.benmu.framework.manager.Manager;
 import com.benmu.framework.manager.ManagerFactory;
 import com.benmu.framework.manager.impl.PermissionManager;
 import com.benmu.framework.manager.impl.dispatcher.DispatchEventManager;
 import com.benmu.framework.model.PlatformConfigBean;
-import com.benmu.wxbase.BMWXEnvironment;
 import com.plugamap.R;
 import com.plugamap.model.GeoResultBean;
 
