@@ -19,6 +19,7 @@ import com.benmu.framework.model.PlatformConfigBean;
 import com.plugamap.R;
 import com.plugamap.model.GeoResultBean;
 
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -46,6 +47,26 @@ public class GeoManager extends Manager implements AMapLocationListener {
         }
     }
 
+    @Override
+    public HashMap<String, HashMap<String, String>> getComponentsAndModules() {
+        HashMap<String, HashMap<String, String>> result = new HashMap<>();
+
+        HashMap<String, String> amapCommponents = new HashMap<>();
+        amapCommponents.put("weex-amap", "com.plugamap.component.WXMapViewComponent");
+        amapCommponents.put("weex-amap-marker", "com.plugamap.component.WXMapMarkerComponent");
+        amapCommponents.put("weex-amap-info-window", "com.plugamap.component.WXMapInfoWindowComponent");
+        amapCommponents.put("weex-amap-circle", "com.plugamap.component.WXMapCircleComponent");
+        amapCommponents.put("weex-amap-polyline", "com.plugamap.component.WXMapPolyLineComponent");
+        amapCommponents.put("weex-amap-polygon", "com.plugamap.component.WXMapPolygonComponent");
+
+        HashMap<String, String> amapMoudles = new HashMap<>();
+        amapMoudles.put("amap", "com.plugamap.module.WXMapModule");
+
+        result.put(Constant.CUSTOMER_COMPONETS, amapCommponents);
+        result.put(Constant.CUSTOMER_MODULES, amapMoudles);
+
+        return result;
+    }
 
     public void startLocation(final Context context) {
         if (!mInit) {
