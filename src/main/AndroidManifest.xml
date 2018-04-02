@@ -1,2 +1,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.plugamap" />
+    package="com.plugamap">
+
+    <application>
+        <!--amap-->
+
+        <service android:name="com.amap.api.location.APSService"></service><!--amap finish-->
+    </application>
+</manifest>
