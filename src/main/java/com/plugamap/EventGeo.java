@@ -4,6 +4,7 @@ import android.content.Context;
 
 import com.benmu.framework.manager.ManagerFactory;
 import com.benmu.framework.manager.impl.dispatcher.DispatchEventManager;
+import com.benmu.framework.model.WeexEventBean;
 import com.benmu.framework.utils.JsPoster;
 import com.benmu.wxbase.EventGate;
 import com.plugamap.manager.GeoManager;
@@ -20,8 +21,8 @@ public class EventGeo extends EventGate {
     private GeoManager mGeoManager;
 
     @Override
-    public void perform(Context context, JSCallback jscallback) {
-        getLocation(context, jscallback);
+    public void perform(Context context,WeexEventBean weexEventBean) {
+        getLocation(context, weexEventBean.getJscallback());
     }
 
     public void getLocation(Context context, JSCallback jscallback) {

@@ -1,6 +1,7 @@
 package com.plugamap.module;
 
 import android.support.annotation.Nullable;
+import android.text.TextUtils;
 import android.util.Log;
 
 import com.amap.api.location.AMapLocation;
@@ -10,7 +11,11 @@ import com.amap.api.location.AMapLocationListener;
 import com.amap.api.maps.AMap;
 import com.amap.api.maps.AMapUtils;
 import com.amap.api.maps.CameraUpdateFactory;
+import com.amap.api.maps.MapsInitializer;
 import com.amap.api.maps.model.LatLng;
+import com.benmu.framework.BMWXEnvironment;
+import com.benmu.framework.constant.Constant;
+import com.benmu.framework.model.PlatformConfigBean;
 import com.plugamap.component.WXMapPolygonComponent;
 import com.plugamap.component.WXMapViewComponent;
 import com.taobao.weex.WXEnvironment;
@@ -181,4 +186,15 @@ public class WXMapModule extends WXModule {
         // 在单次定位情况下，定位无论成功与否，都无需调用stopLocation()方法移除请求，定位sdk内部会移除
         client.startLocation();
     }
+
+    @JSMethod
+    public void initAmap(final String amapKey) {
+        String androidAppKey = amapKey;
+        if (!TextUtils.isEmpty(androidAppKey) && !Constant.AMAP_KEY.equals(androidAppKey)) {
+            MapsInitializer.setApiKey(androidAppKey);
+            AMapLocationClient.setApiKey(androidAppKey);
+
+        }
+    }
+
 }
