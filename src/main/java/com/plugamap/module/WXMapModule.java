@@ -4,6 +4,7 @@ import android.support.annotation.Nullable;
 import android.text.TextUtils;
 import android.util.Log;
 
+import com.alibaba.weex.plugin.annotation.WeexModule;
 import com.amap.api.location.AMapLocation;
 import com.amap.api.location.AMapLocationClient;
 import com.amap.api.location.AMapLocationClientOption;
@@ -36,6 +37,7 @@ import java.util.HashMap;
  * Created by budao on 2017/1/24.
  */
 
+@WeexModule(name = "amap", lazyLoad = true)
 public class WXMapModule extends WXModule {
     private static final String RESULT = "result";
     private static final String DATA = "data";
@@ -193,7 +195,6 @@ public class WXMapModule extends WXModule {
         if (!TextUtils.isEmpty(androidAppKey) && !Constant.AMAP_KEY.equals(androidAppKey)) {
             MapsInitializer.setApiKey(androidAppKey);
             AMapLocationClient.setApiKey(androidAppKey);
-
         }
     }
 

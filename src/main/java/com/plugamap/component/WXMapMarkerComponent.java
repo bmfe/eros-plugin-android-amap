@@ -7,6 +7,7 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 
+import com.alibaba.weex.plugin.annotation.WeexComponent;
 import com.amap.api.maps.MapView;
 import com.amap.api.maps.model.BitmapDescriptor;
 import com.amap.api.maps.model.BitmapDescriptorFactory;
@@ -40,7 +41,7 @@ import java.util.ArrayList;
 /**
  * Created by budao on 2017/2/9.
  */
-
+@WeexComponent(names = "weex-amap-marker")
 public class WXMapMarkerComponent extends WXComponent<View> {
     private Marker mMarker;
     private MapView mMapView;

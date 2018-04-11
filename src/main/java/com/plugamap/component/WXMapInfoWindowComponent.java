@@ -5,6 +5,7 @@ import android.graphics.Color;
 import android.support.annotation.NonNull;
 import android.widget.LinearLayout;
 
+import com.alibaba.weex.plugin.annotation.WeexComponent;
 import com.amap.api.maps.AMap;
 import com.amap.api.maps.MapView;
 import com.amap.api.maps.model.BitmapDescriptorFactory;
@@ -27,6 +28,7 @@ import org.json.JSONException;
  * Created by budao on 2017/2/9.
  */
 
+@WeexComponent(names = "weex-amap-info-window")
 public class WXMapInfoWindowComponent extends WXVContainer<LinearLayout> {
     private Marker mMarker;
     private MapView mMapView;

@@ -5,6 +5,7 @@ import android.graphics.Color;
 import android.support.annotation.NonNull;
 import android.view.View;
 
+import com.alibaba.weex.plugin.annotation.WeexComponent;
 import com.amap.api.maps.AMap;
 import com.amap.api.maps.MapView;
 import com.amap.api.maps.model.LatLng;
@@ -25,7 +26,7 @@ import java.util.ArrayList;
 /**
  * Created by budao on 2017/3/3.
  */
-
+@WeexComponent(names = "weex-amap-polyline")
 public class WXMapPolyLineComponent extends WXComponent<View> {
   ArrayList<LatLng> mPosition = new ArrayList<>();
   private MapView mMapView;
