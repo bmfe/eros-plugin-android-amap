@@ -40,7 +40,7 @@ public class GeoManager extends Manager implements AMapLocationListener {
     }
 
     public void initAmap(String amapKey) {
-        if (!TextUtils.isEmpty(amapKey) && !Constant.AMAP_KEY.equals(amapKey)) {
+        if (!TextUtils.isEmpty(amapKey)) {
             MapsInitializer.setApiKey(amapKey);
             AMapLocationClient.setApiKey(amapKey);
             mInit = true;
