@@ -17,6 +17,7 @@ import com.amap.api.maps.model.MarkerOptions;
 import com.benmu.framework.utils.BMHookGlide;
 import com.benmu.framework.utils.ImageUtil;
 import com.benmu.framework.utils.L;
+import com.benmu.widget.utils.BaseCommonUtil;
 import com.bumptech.glide.load.resource.bitmap.GlideBitmapDrawable;
 import com.bumptech.glide.load.resource.drawable.GlideDrawable;
 import com.bumptech.glide.load.resource.gif.GifDrawable;
@@ -75,7 +76,7 @@ public class WXMapMarkerComponent extends WXComponent<View> {
             String position = getDomObject().getAttrs().get(Constant.Name.POSITION).toString();
             initMarker(title, position, icon);
         }
-        mScale = WXViewUtils.defaultPixelScaleFactor(getContext());
+        mScale = BaseCommonUtil.defaultPixelScaleFactor(getContext());
         // FixMe： 只是为了绕过updateProperties中的逻辑检查
         return new View(context);
     }
