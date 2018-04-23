@@ -46,7 +46,7 @@ import java.util.HashMap;
 @WeexComponent(names = "weex-amap")
 public class WXMapViewComponent extends WXVContainer<MapView> implements LocationSource,
         AMapLocationListener {
-    private static final int REQUEST_CODE_MAPVIEW = 10000001;
+    private static final int REQUEST_CODE_MAPVIEW = 0xf1ab;
     private static String[] permissions = new String[]{
             "android.permission.ACCESS_FINE_LOCATION",
             "android.permission.ACCESS_LOCATION_EXTRA_COMMANDS"
