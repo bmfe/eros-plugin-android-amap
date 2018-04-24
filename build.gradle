@@ -1,10 +1,8 @@
 apply plugin: 'com.android.library'
+apply plugin: 'com.novoda.bintray-release'
 
 android {
     compileSdkVersion 25
-
-
-
     defaultConfig {
         minSdkVersion 16
         targetSdkVersion 25
@@ -14,24 +12,35 @@ android {
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
     }
-
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    buildToolsVersion '26.0.2'
 
+    lintOptions {
+        abortOnError false
+    }
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
-
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'com.android.support.test:runner:1.0.1'
-    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
-    compile project(':nexus')
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    compile 'junit:junit:4.12'
+    compile 'com.benmu.eros:eros-nexus:0.0.1'
     //高德地图
     compile 'com.amap.api:location:latest.integration'
     compile 'com.amap.api:3dmap:latest.integration'
+}
+
+
+publish {
+    userOrg = 'erosandroid'
+    repoName='ErosApi'
+    groupId = 'com.benmu.eros'
+    artifactId = 'plugin-amap'
+    publishVersion = '0.0.2'
+    desc = 'Amap plugin for Eros'
+    website = 'https://github.com/bmfe/eros-plugin-android-amap'
 }
