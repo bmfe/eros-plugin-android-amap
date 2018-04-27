@@ -4,6 +4,7 @@ import android.support.annotation.Nullable;
 import android.text.TextUtils;
 import android.util.Log;
 
+import com.alibaba.weex.plugin.annotation.WeexModule;
 import com.amap.api.location.AMapLocation;
 import com.amap.api.location.AMapLocationClient;
 import com.amap.api.location.AMapLocationClientOption;
@@ -15,9 +16,11 @@ import com.amap.api.maps.MapsInitializer;
 import com.amap.api.maps.model.LatLng;
 import com.benmu.framework.BMWXEnvironment;
 import com.benmu.framework.constant.Constant;
+import com.benmu.framework.manager.ManagerFactory;
 import com.benmu.framework.model.PlatformConfigBean;
 import com.plugamap.component.WXMapPolygonComponent;
 import com.plugamap.component.WXMapViewComponent;
+import com.plugamap.manager.GeoManager;
 import com.taobao.weex.WXEnvironment;
 import com.taobao.weex.WXSDKManager;
 import com.taobao.weex.annotation.JSMethod;
@@ -36,6 +39,7 @@ import java.util.HashMap;
  * Created by budao on 2017/1/24.
  */
 
+@WeexModule(name = "amap", lazyLoad = true)
 public class WXMapModule extends WXModule {
     private static final String RESULT = "result";
     private static final String DATA = "data";
@@ -189,12 +193,8 @@ public class WXMapModule extends WXModule {
 
     @JSMethod
     public void initAmap(final String amapKey) {
-        String androidAppKey = amapKey;
-        if (!TextUtils.isEmpty(androidAppKey) && !Constant.AMAP_KEY.equals(androidAppKey)) {
-            MapsInitializer.setApiKey(androidAppKey);
-            AMapLocationClient.setApiKey(androidAppKey);
-
-        }
+        GeoManager mGeoManager = ManagerFactory.getManagerService(GeoManager.class);
+        mGeoManager.initAmap(amapKey);
     }
 
 }

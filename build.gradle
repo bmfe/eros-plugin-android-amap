@@ -1,5 +1,7 @@
 apply plugin: 'com.android.library'
 apply plugin: 'com.novoda.bintray-release'
+apply plugin: 'com.github.dcendents.android-maven'
+group='com.github.aa453509345'
 
 android {
     compileSdkVersion 25
@@ -18,11 +20,10 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
-    buildToolsVersion '26.0.2'
-
     lintOptions {
         abortOnError false
     }
+    buildToolsVersion '26.0.2'
 }
 
 dependencies {
@@ -32,6 +33,7 @@ dependencies {
     //高德地图
     compile 'com.amap.api:location:latest.integration'
     compile 'com.amap.api:3dmap:latest.integration'
+    compile 'com.github.dcendents:android-maven-gradle-plugin:1.5'
 }
 
 
@@ -40,7 +42,7 @@ publish {
     repoName='ErosApi'
     groupId = 'com.benmu.eros'
     artifactId = 'plugin-amap'
-    publishVersion = '0.0.2'
+    publishVersion = '1.0.0'
     desc = 'Amap plugin for Eros'
     website = 'https://github.com/bmfe/eros-plugin-android-amap'
 }
