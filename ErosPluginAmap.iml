@@ -111,6 +111,7 @@
     <orderEntry type="library" exported="" name="Gradle: com.squareup.okhttp:okhttp-ws:2.3.0@jar" level="project" />
     <orderEntry type="library" exported="" name="Gradle: com.android.support:animated-vector-drawable-25.3.1" level="project" />
     <orderEntry type="library" exported="" name="Gradle: com.android.support:support-compat-25.3.1" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: com.github.dcendents:android-maven-gradle-plugin:1.5@jar" level="project" />
     <orderEntry type="library" exported="" name="Gradle: com.amap.api:3dmap:6.1.0@jar" level="project" />
     <orderEntry type="library" exported="" name="Gradle: com.amap.api:location:4.0.0@jar" level="project" />
     <orderEntry type="library" exported="" name="Gradle: org.weex.plugin:processor:1.0.2@jar" level="project" />

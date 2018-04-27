@@ -1,5 +1,4 @@
 apply plugin: 'com.android.library'
-apply plugin: 'com.novoda.bintray-release'
 apply plugin: 'com.github.dcendents.android-maven'
 group='com.github.aa453509345'
 
@@ -37,12 +36,12 @@ dependencies {
 }
 
 
-publish {
-    userOrg = 'erosandroid'
-    repoName='ErosApi'
-    groupId = 'com.benmu.eros'
-    artifactId = 'plugin-amap'
-    publishVersion = '1.0.0'
-    desc = 'Amap plugin for Eros'
-    website = 'https://github.com/bmfe/eros-plugin-android-amap'
-}
+//publish {
+//    userOrg = 'erosandroid'
+//    repoName='ErosApi'
+//    groupId = 'com.benmu.eros'
+//    artifactId = 'plugin-amap'
+//    publishVersion = '1.0.0'
+//    desc = 'Amap plugin for Eros'
+//    website = 'https://github.com/bmfe/eros-plugin-android-amap'
+//}
