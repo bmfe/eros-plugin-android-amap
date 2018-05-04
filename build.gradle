@@ -34,14 +34,3 @@ dependencies {
     compile 'com.amap.api:3dmap:latest.integration'
     compile 'com.github.dcendents:android-maven-gradle-plugin:1.5'
 }
-
-
-//publish {
-//    userOrg = 'erosandroid'
-//    repoName='ErosApi'
-//    groupId = 'com.benmu.eros'
-//    artifactId = 'plugin-amap'
-//    publishVersion = '1.0.0'
-//    desc = 'Amap plugin for Eros'
-//    website = 'https://github.com/bmfe/eros-plugin-android-amap'
-//}
