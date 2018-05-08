@@ -1,2 +1,1 @@
-# BMPlugAmap
-eros Amap plugin
+# android-eros-plugin-amap

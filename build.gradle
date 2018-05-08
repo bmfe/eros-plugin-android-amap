@@ -1,36 +1,30 @@
-apply plugin: 'com.android.library'
-apply plugin: 'com.github.dcendents.android-maven'
-group='com.github.aa453509345'
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
 
-android {
-    compileSdkVersion 25
-    defaultConfig {
-        minSdkVersion 16
-        targetSdkVersion 25
-        versionCode 1
-        versionName "1.0"
-
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-
+buildscript {
+    repositories {
+        jcenter()
+        google()
+        mavenCentral()
     }
-    buildTypes {
-        release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-        }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.0.0'
+        classpath 'com.benmu.eros:eros-raven:0.0.2'
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+        classpath 'com.github.dcendents:android-maven-gradle-plugin:1.5'
     }
-    lintOptions {
-        abortOnError false
-    }
-    buildToolsVersion '26.0.2'
 }
 
-dependencies {
-    compile fileTree(include: ['*.jar'], dir: 'libs')
-    compile 'junit:junit:4.12'
-    compile 'com.benmu.eros:eros-nexus:0.0.1'
-    //高德地图
-    compile 'com.amap.api:location:latest.integration'
-    compile 'com.amap.api:3dmap:latest.integration'
-    compile 'com.github.dcendents:android-maven-gradle-plugin:1.5'
+allprojects {
+    repositories {
+        jcenter()
+        google()
+        mavenCentral()
+        maven { url 'https://jitpack.io' }
+    }
 }
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
+
