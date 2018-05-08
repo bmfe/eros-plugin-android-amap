@@ -13,6 +13,7 @@ android {
         versionName "1.0"
         multiDexEnabled true
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        javaCompileOptions.annotationProcessorOptions.includeCompileClasspath = true
         ndk {
             abiFilters "x86"
             abiFilters "armeabi"
