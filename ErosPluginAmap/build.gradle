@@ -29,10 +29,10 @@ android {
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     compile 'junit:junit:4.12'
-//    compile 'com.benmu.eros:eros-nexus:0.0.1'
-    compile 'com.github.myliuyx:android-eros-nexus:0.0.2'
     //高德地图
     compile 'com.amap.api:location:latest.integration'
     compile 'com.amap.api:3dmap:latest.integration'
     compile 'com.github.dcendents:android-maven-gradle-plugin:1.5'
+
+    implementation 'com.github.bmfe:eros-nexus:0.0.3'
 }

@@ -104,9 +104,8 @@ dependencies {
     })
     compile "com.android.support:support-v4:${PROJECT_SUPPORTLIBVERSION}"
     testCompile 'junit:junit:4.12'
-//    compile 'com.github.bmfe.eros-android-worker:eros-framework:eros_v0.0.1'
-    compile 'com.github.myliuyx:android-eros-nexus:0.0.2'
-    compile 'com.github.aa453509345:eros-framework:framework_0.3'
+    implementation 'com.github.bmfe:eros-nexus:0.0.3'
+    implementation 'com.github.bmfe:WeexErosFramework:0.0.4'
     compile project(path: ':ErosPluginAmap')
 }
 
