@@ -34,5 +34,5 @@ dependencies {
     compile 'com.amap.api:3dmap:latest.integration'
     compile 'com.github.dcendents:android-maven-gradle-plugin:1.5'
 
-    implementation 'com.github.bmfe.eros-nexus:nexus:0.0.6'
+    compile project(':nexus')
 }
