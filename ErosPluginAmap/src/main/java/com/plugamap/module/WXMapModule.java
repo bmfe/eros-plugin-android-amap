@@ -75,8 +75,7 @@ public class WXMapModule extends WXModule {
     }
 
     @JSMethod
-    public void polygonContainsMarker(String position, String id, @Nullable final JSCallback
-            callback) {
+    public void polygonContainsMarker(String position, String id, @Nullable final JSCallback callback) {
         boolean contains = false;
         boolean success = false;
         try {
@@ -121,54 +120,9 @@ public class WXMapModule extends WXModule {
                         position.add(aMapLocation.getLatitude());
                         data.put("position", position);
                         map.put(DATA, data);
-                        map.put(RESULT, aMapLocation.getLongitude() > 0 && aMapLocation
-                                .getLatitude() > 0 ? RESULT_OK : RESULT_FAILED);
+                        map.put(RESULT, aMapLocation.getLongitude() > 0 && aMapLocation.getLatitude() > 0 ? RESULT_OK : RESULT_FAILED);
                         callback.invoke(map);
                     }
-                } else {
-                    String errText = "定位失败," + aMapLocation.getErrorCode() + ": " + aMapLocation
-                            .getErrorInfo();
-                    WXLogUtils.e("WXMapModule", errText);
-                }
-                if (client != null) {
-                    client.stopLocation();
-                    client.onDestroy();
-                }
-            }
-        });
-        //设置为高精度定位模式
-        clientOption.setLocationMode(AMapLocationClientOption.AMapLocationMode.Hight_Accuracy);
-        clientOption.setOnceLocation(true);
-        //设置定位参数
-        client.setLocationOption(clientOption);
-        // 此方法为每隔固定时间会发起一次定位请求，为了减少电量消耗或网络流量消耗，
-        // 注意设置合适的定位时间的间隔（最小间隔支持为2000ms），并且在合适时间调用stopLocation()方法来取消定位请求
-        // 在定位结束后，在合适的生命周期调用onDestroy()方法
-        // 在单次定位情况下，定位无论成功与否，都无需调用stopLocation()方法移除请求，定位sdk内部会移除
-        client.startLocation();
-    }
-
-    @JSMethod
-    public void startCurrentLocation(final String ref, JSCallback callback) {
-
-        final AMapLocationClient client = new AMapLocationClient(
-                WXEnvironment.getApplication().getApplicationContext());
-        final AMapLocationClientOption clientOption = new AMapLocationClientOption();
-        //设置定位监听
-        client.setLocationListener(new AMapLocationListener() {
-            public void onLocationChanged(AMapLocation aMapLocation) {
-                if (aMapLocation != null && aMapLocation.getErrorCode() == 0) {
-                    WXComponent wxComponent = WXSDKManager.getInstance().getWXRenderManager()
-                            .getWXComponent(mWXSDKInstance.getInstanceId(), ref);
-                    if (wxComponent instanceof WXMapViewComponent) {
-                        WXMapViewComponent mapViewComponent = (WXMapViewComponent) wxComponent;
-                        AMap aMap = mapViewComponent.getMap();
-                        if (aMap != null) {
-                            aMap.animateCamera(CameraUpdateFactory.changeLatLng(new LatLng
-                                    (aMapLocation.getLatitude(), aMapLocation.getLongitude())));
-                        }
-                    }
-
                 } else {
                     String errText = "定位失败," + aMapLocation.getErrorCode() + ": " + aMapLocation.getErrorInfo();
                     WXLogUtils.e("WXMapModule", errText);

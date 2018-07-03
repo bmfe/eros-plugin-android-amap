@@ -6,11 +6,13 @@ package com.plugamap.util;
 
 public class Constant {
 
-  public static interface Value {
+  public interface Value {
     int SCROLLGESTURE = 0x1;
     int ZOOMGESTURE = 0x1 << 1;
     int TILTGESTURE = 0x1 << 2;
     int ROTATEGESTURE = 0x1 << 3;
+    String RIGHT_CENTER = "center";
+    String RIGHT_BOTTOM = "bottom";
   }
 
   public interface Name {
@@ -22,9 +24,15 @@ public class Constant {
     String COMPASS = "compass";
     String GEOLOCATION = "geolocation";
     String GESTURE = "gesture";
+    String GESTURES = "gestures";
     String INDOORSWITCH = "indoorswitch";
     String CENTER = "center";
     String KEYS = "sdkKey";
+    String ZOOM_POSITION = "zoomPosition";
+    String MY_LOCATION_ENABLED = "myLocationEnabled";
+    String SHOW_MY_LOCATION = "showMyLocation";
+    String CUSTOM_STYLE_PATH = "customStylePath";
+    String CUSTOM_ENABLED = "customEnabled";
 
     // marker
     String MARKER = "marker";
@@ -32,9 +40,6 @@ public class Constant {
     String ICON = "icon";
     String TITLE = "title";
     String HIDE_CALL_OUT = "hideCallout";
-    String SUBTITLE="subTitle";
-    String PINWIDTH="pinWidth";
-    String PINHEIGHT="pinHeight";
 
     // polyline
     String PATH = "path";
@@ -51,7 +56,6 @@ public class Constant {
     String OFFSET = "offset";
     String OPEN = "open";
   }
-
 
 
   public static interface EVENT {
