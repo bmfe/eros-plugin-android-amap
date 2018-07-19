@@ -104,7 +104,7 @@ public class WXMapModule extends WXModule {
      * get user location.
      */
     @JSMethod
-    public void getUserLocation(String id, @Nullable final JSCallback callback) {
+    public void getUserLocation(@Nullable final JSCallback callback) {
         final AMapLocationClient client = new AMapLocationClient(
                 WXEnvironment.getApplication().getApplicationContext());
         final AMapLocationClientOption clientOption = new AMapLocationClientOption();
