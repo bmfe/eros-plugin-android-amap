@@ -1,6 +1,6 @@
 package com.plugamap.model;
 
-import com.benmu.framework.model.BaseResultBean;
+import com.eros.framework.model.BaseResultBean;
 
 /**
  * Created by Carry on 2017/11/17.

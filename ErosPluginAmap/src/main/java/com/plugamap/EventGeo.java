@@ -2,11 +2,11 @@ package com.plugamap;
 
 import android.content.Context;
 
-import com.benmu.framework.manager.ManagerFactory;
-import com.benmu.framework.manager.impl.dispatcher.DispatchEventManager;
-import com.benmu.framework.model.WeexEventBean;
-import com.benmu.framework.utils.JsPoster;
-import com.benmu.wxbase.EventGate;
+import com.eros.framework.manager.ManagerFactory;
+import com.eros.framework.manager.impl.dispatcher.DispatchEventManager;
+import com.eros.framework.model.WeexEventBean;
+import com.eros.framework.utils.JsPoster;
+import com.eros.wxbase.EventGate;
 import com.plugamap.manager.GeoManager;
 import com.plugamap.model.GeoResultBean;
 import com.squareup.otto.Subscribe;
