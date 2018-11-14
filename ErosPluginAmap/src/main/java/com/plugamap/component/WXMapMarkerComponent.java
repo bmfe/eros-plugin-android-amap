@@ -3,11 +3,14 @@ package com.plugamap.component;
 import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewStub;
 import com.alibaba.weex.plugin.annotation.WeexComponent;
@@ -17,6 +20,11 @@ import com.amap.api.maps.model.BitmapDescriptorFactory;
 import com.amap.api.maps.model.LatLng;
 import com.amap.api.maps.model.Marker;
 import com.amap.api.maps.model.MarkerOptions;
+import com.benmu.framework.utils.BMHookGlide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.bumptech.glide.request.RequestOptions;
+import com.bumptech.glide.request.target.SimpleTarget;
+import com.bumptech.glide.request.transition.Transition;
 import com.plugamap.util.Constant;
 import com.plugamap.util.GifDecoder;
 import com.taobao.weex.WXSDKInstance;
@@ -191,8 +199,8 @@ public class WXMapMarkerComponent extends AbstractMapWidgetComponent<Marker> {
   }
 
   private void setMarkerIcon(@Nullable final Marker mMarker, final String icon) {
-    WXLogUtils.d(TAG, "Invoke setMarkerIcon on thread " + Thread.currentThread().getName());
-    WXLogUtils.d(TAG, "setMarkerIcon from: " + icon);
+//    WXLogUtils.d(TAG, "Invoke setMarkerIcon on thread " + Thread.currentThread().getName());
+//    WXLogUtils.d(TAG, "setMarkerIcon from: " + icon);
     if (TextUtils.isEmpty(icon) || mMarker == null) {
       return;
     }
@@ -225,6 +233,18 @@ public class WXMapMarkerComponent extends AbstractMapWidgetComponent<Marker> {
         }
       });
       return;
+    }else if("bmlocal".equals(rewrited.getScheme())){
+      BMHookGlide.load(getInstance().getContext(),icon).apply(new RequestOptions().diskCacheStrategy(DiskCacheStrategy.ALL)).into
+              (new SimpleTarget<Drawable>() {
+                @Override
+                public void onResourceReady(@NonNull Drawable resource, @Nullable Transition<?
+                        super Drawable> transition) {
+                  BitmapDrawable bd = (BitmapDrawable) resource;
+                  Bitmap bm= bd.getBitmap();
+                  mMarker.setIcon(BitmapDescriptorFactory.fromBitmap(bm));
+                }
+
+              });
     }
 
     new AsyncTask<Void, String, Uri>() {
